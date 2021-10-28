@@ -11,7 +11,7 @@ public class returnItem : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Capsule");
+        player = GameObject.Find("Player");
         item = player.GetComponent<characterStat>();
 
         InZone = false;
