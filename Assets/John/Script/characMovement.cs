@@ -9,6 +9,7 @@ public class characMovement : MonoBehaviour
     public Sprite walkingright = null;
     public Sprite walkingback = null;
     public Sprite walkingforward = null;
+    public Sprite standing = null;
     characterStat JumpNum;
 
     public float jumpHeight = 10;
@@ -28,6 +29,10 @@ public class characMovement : MonoBehaviour
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
         transform.position = transform.position + new Vector3(horizontalInput * Time.deltaTime * speed, 0, verticalInput * Time.deltaTime * speed);
+        if (horizontalInput == 0 && verticalInput == 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = standing;
+        }
         if (horizontalInput < 0)
         {
             GetComponent<SpriteRenderer>().sprite = walkingleft;
